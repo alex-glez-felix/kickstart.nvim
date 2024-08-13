@@ -109,6 +109,7 @@ vim.opt.mouse = 'a'
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
+vim.o.wrap = false
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -125,6 +126,8 @@ vim.opt.undodir = vim.fn.expand '~/.config/nvim/undodir/'
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
 
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
