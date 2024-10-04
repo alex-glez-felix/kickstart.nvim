@@ -59,7 +59,7 @@ return {
     end, { desc = 'mark [4]' })
     vim.keymap.set('n', '<leader>mp', function()
       harpoon:list():prev()
-    end, { desc = '[A]dd' })
+    end, { desc = '[p]rev' })
     vim.keymap.set('n', '<leader>mn', function()
       harpoon:list():next()
     end, { desc = '[n]next' })
