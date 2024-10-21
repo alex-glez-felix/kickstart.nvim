@@ -671,10 +671,10 @@ require('lazy').setup({
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
-        javascript = { { 'prettier' } },
-        typescript = { { 'prettier' } },
-        javascriptreact = { { 'prettier' } },
-        typescriptreact = { { 'prettier' } },
+        javascript = { 'prettier', 'biome' },
+        typescript = { 'prettier', 'biome' },
+        javascriptreact = { 'prettier', 'biome' },
+        typescriptreact = { 'prettier', 'biome' },
       },
     },
   },
@@ -872,6 +872,56 @@ require('lazy').setup({
       vim.keymap.set('n', '<C-Space>', nvim_tmux_nav.NvimTmuxNavigateNext)
     end,
   },
+  {
+    'stevearc/oil.nvim',
+    ---@module 'oil'
+    -- Optional dependencies
+    dependencies = { { 'echasnovski/mini.icons', opts = {} } },
+    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+    config = function()
+      local oil = require 'oil'
+      ---@type oil.SetupOpts
+      oil.setup {
+        view_options = {
+          show_hidden = true,
+        },
+        keymaps = {
+          ['q'] = 'actions.close',
+        },
+      }
+
+      vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+      vim.keymap.set('n', '<space>-', oil.toggle_float, { desc = 'Open floating oil window' })
+    end,
+  },
+  {
+    'folke/trouble.nvim',
+    opts = {}, -- for default options, refer to the configuration section for custom setup.
+    cmd = 'Trouble',
+    keys = {
+      {
+        '<leader>xx',
+        '<cmd>Trouble diagnostics toggle<cr>',
+        desc = 'Diagnostics (Trouble)',
+      },
+      {
+        '<leader>xX',
+        '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
+        desc = 'Buffer Diagnostics (Trouble)',
+      },
+      {
+        '<leader>xL',
+        '<cmd>Trouble loclist toggle<cr>',
+        desc = 'Location List (Trouble)',
+      },
+      {
+        '<leader>xQ',
+        '<cmd>Trouble qflist toggle<cr>',
+        desc = 'Quickfix List (Trouble)',
+      },
+    },
+  },
+
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- place them in the correct locations.
