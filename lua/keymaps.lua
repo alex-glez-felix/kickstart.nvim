@@ -23,12 +23,3 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-
-vim.keymap.set('n', '<left>', ':vertical resize -5<cr>')
-vim.keymap.set('n', '<right>', ':vertical resize +5<cr>')
-vim.keymap.set('n', '<down>', ':resize -5<cr>')
-vim.keymap.set('n', '<up>', ':resize +5<cr>')
-
--- Tab navigation
-vim.keymap.set('n', '<C-Left>', ':tabp<cr>')
-vim.keymap.set('n', '<C-Right>', ':tabn<cr>')
